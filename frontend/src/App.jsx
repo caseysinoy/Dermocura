@@ -1,11 +1,16 @@
-import react from 'react'
-import Login from '../maincomponents/login';
+import react from 'react';
+import {Routes, Route} from 'react-router-dom';
+import Login from './maincomponents/login';
+import Admin from './maincomponents/admin';
 import './App.css';
 function App() {
 
   return (
     <>
-      <Login />
+      <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route path="/admin" element={<Admin />} />
+      </Routes>
     </>
   )
 }

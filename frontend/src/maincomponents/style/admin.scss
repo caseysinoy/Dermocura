@@ -1,0 +1,12 @@
+*{
+    border: 1px solid black;
+}
+.admin-wrapper{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    height: 100vh;
+}
+
+h1{
+    width: fit-content;
+}
