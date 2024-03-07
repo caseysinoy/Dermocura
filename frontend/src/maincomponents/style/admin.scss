@@ -1,6 +1,12 @@
-*{
-    border: 1px solid black;
+:root{
+    --default-main: #1475E6;
+    --shadow-containers: rgb(57, 56, 56);
 }
+
+.side-bar{
+    box-shadow: 0 1px 10px var(--shadow-containers);
+}
+
 .admin-wrapper{
     display: grid;
     grid-template-columns: 0.5fr 2fr;
@@ -9,4 +15,57 @@
 
 h1{
     width: fit-content;
+}
+
+.main-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.user-container{
+    display: block;
+    height: 200px;
+    margin: 30px auto;
+    max-height: 90vh;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.top-header{
+    background-color: var(--default-main);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: whitesmoke;
+}
+
+
+.bar{
+    background-color: var(--default-main);
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.navigation{
+    margin-left: 20px;
+    padding: 0;
+    margin: 10px;
+    li{
+        list-style: none;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        border-left: 1px solid rgb(39, 39, 39);
+        transition: 200ms;
+        &:hover{
+            background-color: rgb(99, 141, 233);
+            color: whitesmoke;
+            border: none;
+            transition: 200ms;
+        }
+    }
 }
