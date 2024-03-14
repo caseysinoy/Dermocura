@@ -1,6 +1,6 @@
 :root{
     --default-main: #1475E6;
-    --shadow-containers: rgb(57, 56, 56);
+    --shadow-containers: rgb(130, 130, 130);
 }
 
 .side-bar{
@@ -20,25 +20,42 @@ h1{
 .main-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows:  0.5fr 1fr;
 }
 
-.user-container{
+.user-container, .message-container{
     display: block;
     height: 200px;
     margin: 30px auto;
     max-height: 90vh;
     width: 90%;
-    border: 1px solid black;
-    border-radius: 10px;
+    box-shadow: 0 0 4px var(--shadow-containers);
+    border-radius: 3px;
     overflow: hidden;
+    .top-header{
+        background-color: var(--default-main);
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        color: whitesmoke;
+    }
 }
 
-.top-header{
-    background-color: var(--default-main);
-    display: flex;
-    justify-content: space-between;
+.message-container{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin: 30px auto;
+    .list-messages{
+        padding: 10px 0;
+    }
+}
+
+.react-calendar{
+    text-align: center;
+    margin: 30px auto;
     padding: 10px;
-    color: whitesmoke;
+    height: fit-content;
+    border-radius: 4px;
 }
 
 
@@ -66,6 +83,9 @@ h1{
             color: whitesmoke;
             border: none;
             transition: 200ms;
+        }
+        &:active{
+            background-color: rgb(99, 141, 233);
         }
     }
 }
