@@ -5,6 +5,25 @@
 
 .side-bar{
     box-shadow: 0 1px 10px var(--shadow-containers);
+    nav{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+        .link{
+            border-radius: 2px;
+            text-decoration: none;
+            color: black;
+            padding: 10px;
+            border-left: 1.5px solid var(--shadow-containers);
+            transition: 600ms;
+            &:hover{
+                transition: 600ms;
+                border: none;
+                background-color: rgb(99, 141, 233);
+            }
+        }
+    }
 }
 
 .admin-wrapper{
@@ -23,11 +42,12 @@ h1{
     grid-template-rows:  0.5fr 1fr;
 }
 
+
 .user-container, .message-container{
     display: block;
     height: 200px;
     margin: 30px auto;
-    max-height: 90vh;
+    max-height: 45vh;
     width: 90%;
     box-shadow: 0 0 4px var(--shadow-containers);
     border-radius: 3px;
@@ -44,6 +64,9 @@ h1{
 .message-container{
     grid-column-start: 1;
     grid-column-end: 3;
+    width: 96%;
+    height: 100vh;
+    max-height: 45vh;
     margin: 30px auto;
     .list-messages{
         padding: 10px 0;

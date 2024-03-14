@@ -1,4 +1,4 @@
-
+import '../style/profile.scss';
 
 const profile = () =>{
     return(

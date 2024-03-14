@@ -4,7 +4,7 @@ function calendarpage(){
 
     return(
         <>
-            <h1>hello</h1>
+            <Calendar></Calendar>
         </>
     )
 }
