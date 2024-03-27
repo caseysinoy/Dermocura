@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import './style/login.scss';
 import axios from 'axios';
 
@@ -23,7 +25,7 @@ function login() {
     const handlesubmit = async (e) => {
         e.preventDefault();
 
-        const userData = mydata.find(data => data.Username === user && data.Password === pass);
+        const userData = mydata.find(data => data.username === user && data.password === pass);
 
         if (userData) {
             alert("User: " + user +" matched");
@@ -37,11 +39,18 @@ function login() {
             <h1>Logins</h1>
             <div className="alert">lll</div>
             {mydata.map(mydata =>(
-                <form onSubmit={handlesubmit} key={mydata.Id}>
-                    <h1>Hello {mydata.Username} {mydata.Password} {mydata.Id}</h1>
-                    <input className="username" placeholder="Username..." onChange={e => setUser(e.target.value)}></input>
-                    <input className="password" placeholder="Password..." onChange={e => setPass(e.target.value)}></input>
-                    <button type="button" onClick={handlesubmit}>Submit</button>
+                <form onSubmit={handlesubmit} key={mydata.id}>
+                    <h1>Hello {mydata.username} {mydata.password} {mydata.id}</h1>
+                    <div className="mb-3" >
+                        <label>Username</label>
+                        <input type="username" placeholder="Username.." onChange={e => setUser(e.target.value)} /> 
+                    </div>
+                    <div className="mb-3" controlId="formBasicPassword">
+                        <label>Password</label>
+                        <input type="password" placeholder="Password" onChange={e => setPass(e.target.value)} />
+                    </div>
+                    <button variant="Primary" type="submit">Submit</button>
+
                 </form>
             ))}
         </div>
