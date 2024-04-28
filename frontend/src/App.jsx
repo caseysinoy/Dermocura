@@ -6,6 +6,7 @@ import Adboard from './maincomponents/admin-subpage/admin-dashboard';
 import Calendar from './maincomponents/admin-subpage/calendar';
 import Profile from './maincomponents/admin-subpage/profile';
 import Insert from './maincomponents/admin-subpage/insertdatas';
+import Chart from './maincomponents/admin-subpage/charts';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
               <Route path="calendar" element={<Calendar />} />
               <Route path="profile" element={<Profile />} />
               <Route path="insert" element={<Insert />} />
+              <Route path="chart" element={<Chart />} />
             </Route>
       </Routes>
     </>
