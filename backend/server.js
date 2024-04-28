@@ -58,6 +58,21 @@ app.post("/userpost", (req, res) =>{
 
 });
 
+app.post("/schedule", (req, res) =>{
+
+    const reqBody = {
+        day: req.body.day,
+        hours: req.body.hours
+    };
+
+    const query = `INSERT INTO scheddate (day, hour) VALUE ( ?,?)`;
+
+    db.query(query,[reqBody.day, reqBody.hours])
+
+    res.send("Data schedule has been send successfully into schedule");
+
+});
+
 app.listen(8081, () => {
     console.log(`Server connect Success! dalton`);
 });
