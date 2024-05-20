@@ -1,14 +1,15 @@
 :root{
     --default-main: #1475E6;
-    --shadow-containers: rgb(130, 130, 130);
+    --shadow-containers: rgba(82, 63, 105, 0.2);
 }
 
 .side-bar{
-    box-shadow: 0 1px 10px var(--shadow-containers);
+    box-shadow: 2px 0 5px var(--shadow-containers);
     nav{
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        padding: 10px;
+        font-weight: 500;
         gap: 10px;
         .link{
             border-radius: 2px;
@@ -119,3 +120,10 @@ h1{
     }
 }
 
+.flex{
+    display: flex;
+    flex-direction: row;
+    .flex-fit{
+        width: fit-content;
+    }
+}
