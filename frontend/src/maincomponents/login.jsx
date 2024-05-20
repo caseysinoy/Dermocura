@@ -10,22 +10,26 @@ function login() {
     const [user, setUser] = useState("");
     const [pass, setPass] = useState("");
 
-    useEffect( ()=>{
-        const getdata = async() =>{
-            axios.get("http://localhost:8081/users").then(res =>{
-                console.log(res.data)
-                setData(res.data);
-            }).catch(err=>{
-                console.log(err)
-            })
-        }
+    useEffect(() => {
+        const getdata = async () => {
+            try {
+                const response = await axios.get("http://51.79.159.127/thesis/adminlogin.php");
+                setData(response.data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+    
         getdata();
-    }, [])
+    }, []);
+    
 
     const handlesubmit = async (e) => {
         e.preventDefault();
 
         const userData = mydata.find(data => data.username === user && data.password === pass);
+
+        console.log(userData);
 
         if (userData) {
             alert("User: " + user +" matched");
@@ -36,23 +40,22 @@ function login() {
 
     return(
         <div className="form-login">
-            <h1>Logins</h1>
-            <div className="alert">lll</div>
-            {mydata.map(mydata =>(
-                <form onSubmit={handlesubmit} key={mydata.id}>
-                    <h1>Hello {mydata.username} {mydata.password} {mydata.id}</h1>
-                    <div className="mb-3" >
-                        <label>Username</label>
-                        <input type="username" placeholder="Username.." onChange={e => setUser(e.target.value)} /> 
-                    </div>
-                    <div className="mb-3" controlId="formBasicPassword">
-                        <label>Password</label>
-                        <input type="password" placeholder="Password" onChange={e => setPass(e.target.value)} />
-                    </div>
-                    <button variant="Primary" type="submit">Submit</button>
+            <h1>DermoCura</h1>
+            <h1>Login</h1>
+            {/* {mydata.map(mydata => ( */}
 
-                </form>
-            ))}
+                <Form onSubmit={handlesubmit} key={mydata.id}>
+                    <Form.Group className="mb-3" >
+                        <Form.Label>Username</Form.Label>
+                        <Form.Control type="username" placeholder="Username.." onChange={e => setUser(e.target.value)} /> 
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" onChange={e => setPass(e.target.value)} />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">Submit</Button>
+                </Form>
+            {/* ))}  */}
         </div>
     )
     
