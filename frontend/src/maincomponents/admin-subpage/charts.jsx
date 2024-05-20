@@ -68,106 +68,97 @@ function createChartData(chartType) {
   switch (chartType) {
     case "day":
       return {
-        labels: dataChart.map((data) => {
-          const {weekday } = separateDate(data.date);
-          return `${weekday}` // Format labels with separated date components
-        }),
+        labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30],
         datasets: [
           {
             fill: true,
             label: "Males",
-            data: filterGender.males,
+            data: [12,21,53,34,15,46,57,48,29,10,17,22,23,16,12,11,20,31,29,21,24,25,26,22,31,16,27,68,19,30],
             backgroundColor: (context) => {
               const ctx = context.chart.ctx;
-              const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-              gradient.addColorStop(0, "rgba(255, 165, 0, 1)"); // Orange
-              gradient.addColorStop(1, "rgba(255, 255, 224, 0.1)"); // Light yellow
+              const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+              gradient.addColorStop(0, "rgba(0, 0, 255, 1)"); // Orange
+              gradient.addColorStop(1, "rgba(144, 198, 232, 0.1)"); // Light yellow
               return gradient;
             },
-            borderColor: "orange"
+            borderColor: "blue"
           },
           {
             fill: true,
             label: "Female",
-            data: filterGender.females,
+            data: [1,31,23,14,25,26,27,38,21,12,27,25,23,26,22,6,26,21,23,21,25,21,22,24,28,26,22,28,29,30],
             backgroundColor: (context) => {
               const ctx = context.chart.ctx;
-              const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-              gradient.addColorStop(0, "rgba(255, 165, 0, 1)"); // Orange
-              gradient.addColorStop(1, "rgba(255, 255, 224, 0.1)"); // Light yellow
+              const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+              gradient.addColorStop(0, "rgba(255, 0, 0, 1)"); // Orange
+              gradient.addColorStop(1, "rgba(240, 128, 128, 0.1)"); // Light yellow
               return gradient;
             },
-            borderColor: "orange"
+            borderColor: "red"
           }
         ]
       };
       case "month":
         return {
-          labels: dataChart.map((data) => {
-            const {monthName } = separateDate(data.date);
-            return `${monthName}` // Format labels with separated date components
-          }),
+          labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
           datasets: [
             {
               fill: true,
               label: "Males",
-              data: dataChart.map((data) => data.gender === "Male"),
+              data: [50,102,303,250,111, 206, 177,288, 209, 110, 211, 412],
               backgroundColor: (context) => {
                 const ctx = context.chart.ctx;
-                const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-                gradient.addColorStop(0, "rgba(255, 165, 0, 1)"); // Orange
-                gradient.addColorStop(1, "rgba(255, 255, 224, 0.1)"); // Light yellow
+                const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                gradient.addColorStop(0, "rgba(0, 0, 255, 1)"); // Orange
+                gradient.addColorStop(1, "rgba(144, 198, 232, 0.1)"); // Light yellow
                 return gradient;
               },
-              borderColor: "orange"
+              borderColor: "blue"
             },
             {
               fill: true,
               label: "Female",
-              data: dataChart.map((data) => data.gender === "Female"),
+              data: [150,122,203,150,211, 256, 277,108,119, 210, 111, 2],
               backgroundColor: (context) => {
                 const ctx = context.chart.ctx;
-                const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-                gradient.addColorStop(0, "rgba(255, 165, 0, 1)"); // Orange
-                gradient.addColorStop(1, "rgba(255, 255, 224, 0.1)"); // Light yellow
+                const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                gradient.addColorStop(0, "rgba(255, 0, 0, 1)"); // Orange
+                gradient.addColorStop(1, "rgba(240, 128, 128, 0.1)"); // Light yellow
                 return gradient;
               },
-              borderColor: "orange"
+              borderColor: "red"
             }
           ]
         };
         case "year":
         return {
-          labels: dataChart.map((data) => {
-            const {year } = separateDate(data.date);
-            return `${year}` // Format labels with separated date components
-          }),
+          labels: [2022, 2023],
           datasets: [
             {
               fill: true,
               label: "Males",
-              data: dataChart.map((data) => data.gender === "Male"),
+              data: [2035, 3011],
               backgroundColor: (context) => {
                 const ctx = context.chart.ctx;
-                const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-                gradient.addColorStop(0, "rgba(255, 165, 0, 1)"); // Orange
-                gradient.addColorStop(1, "rgba(255, 255, 224, 0.1)"); // Light yellow
+                const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                gradient.addColorStop(0, "rgba(0, 0, 255, 1)"); // Orange
+                gradient.addColorStop(1, "rgba(144, 198, 232, 0.1)"); // Light yellow
                 return gradient;
               },
-              borderColor: "orange"
+              borderColor: "blue"
             },
             {
               fill: true,
               label: "Female",
-              data: dataChart.map((data) => data.gender === "Female"),
+              data: [1023, 2523],
               backgroundColor: (context) => {
                 const ctx = context.chart.ctx;
-                const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-                gradient.addColorStop(0, "rgba(255, 165, 0, 1)"); // Orange
-                gradient.addColorStop(1, "rgba(255, 255, 224, 0.1)"); // Light yellow
+                const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                gradient.addColorStop(0, "rgba(255, 0, 0, 1)"); // Orange
+                gradient.addColorStop(1, "rgba(240, 128, 128, 0.1)"); // Light yellow
                 return gradient;
               },
-              borderColor: "orange"
+              borderColor: "red"
             }
           ]
         };

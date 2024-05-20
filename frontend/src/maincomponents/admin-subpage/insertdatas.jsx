@@ -46,34 +46,33 @@ const insertdatas = () =>{
 
     return(
         <div>
-            <Form onSubmit={handSubmit}>
-                <Form.Group>
+            <Form onSubmit={handSubmit} style={{padding:"50px"}}>
+                <Form.Group className="mb-3">
                     <Form.Label>name</Form.Label>
                     <Form.Control type="text" name="name" value={profile.name} onChange={handleChange} />
                 </Form.Group>
 
-                <Form.Group>
+                <Form.Group className="mb-3">
                     <Form.Label>email</Form.Label>
                     <Form.Control type="text" name="email" value={profile.email} onChange={handleChange} />
                 </Form.Group>
 
-                <Form.Group>
+                <Form.Group className="mb-3">
                     <Form.Label>phone</Form.Label>
                     <Form.Control type="text" name="phone" value={profile.phone} onChange={handleChange} />
                 </Form.Group>
 
-                <Form.Group>
+                <Form.Group className="mb-3">
                     <Form.Label>description</Form.Label>
                     <Form.Control type="text" name="description" value={profile.description} onChange={handleChange} />
                 </Form.Group>
 
                 
-                <Button variant="Primary" type="submit">Submit</Button>
+                <Button type="submit">Submit</Button>
 
             </Form>
 
             <div className="container">
-            asdf
             {data2.map(mydata2 =>(
                 <h1 key={mydata2.id}> {mydata2.name} </h1>
             ))}

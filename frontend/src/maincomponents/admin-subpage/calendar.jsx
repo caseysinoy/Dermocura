@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import FormLabel from 'react-bootstrap/esm/FormLabel';
 import List from 'react-bootstrap/esm/ListGroup';
 import Calendar from 'react-calendar';
+import Container from 'react-bootstrap/Container';
 import data from '../../assets/data.json'
 import axios from 'axios';
 import momemt from 'moment';
@@ -57,30 +58,35 @@ function calendar(){
 	console.log("dates " + values)
 
 	return(
-		<div>
-			<Calendar 
-				value={datePick}
-				onChange={setDatePick}
-				tileClassName={({ date }) => {
-					const formatDate = momemt(date).format("M/D/YYYY");
-					if (values.includes(formatDate)) {
-						console.log("it is working")
-					  return 'hightlight';
+		<Container className='calendar-pad'>
+			<h1>Calendar</h1>
+			<Container className='calendar mb-5'>
+				<Calendar 
+					value={datePick}
+					onChange={setDatePick}
+					tileClassName={({ date }) => {
+						const formatDate = momemt(date).format("M/D/YYYY");
+						if (values.includes(formatDate)) {
+							console.log("it is working")
+						return 'hightlight';
+						}
 					}
-				  }
-				  
-			}
-			
-			/>
+					
+				}
+				
+				/>
 
-			{data.map(datas =>(
-				<List key={datas.id}>
-					<List.Item>Id: {datas.id} <br /> 
-					FirstName: {datas.first_name} <br />
-					LastName:{datas.last_name} <br />
-					date: {datas.dates}</List.Item>
-				</List>
-			))}
+				<Container className='pSchedule mb-5'>
+					{data.map(datas =>(
+						<List  key={datas.id}>
+							<List.Item>Id: {datas.id} <br /> 
+							FirstName: {datas.first_name} <br />
+							LastName:{datas.last_name} <br />
+							date: {datas.dates}</List.Item>
+						</List>
+					))}
+				</Container>
+			</Container>
 
 			<Form onSubmit={handleSubmit}>
 
@@ -102,7 +108,7 @@ function calendar(){
 				<Button type='Submit'>Submit</Button>
 			</Form>
 
-		</div>
+		</Container>
 
 	)
 }

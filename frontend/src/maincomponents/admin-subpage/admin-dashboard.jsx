@@ -1,13 +1,26 @@
 import { useState, useEffect } from 'react';
 import Table from "react-bootstrap/Table";
+import data from '../../assets/data.json'
+import momemt from 'moment';
+import Chart from './charts';
 import React from "react";
+import Calendar from 'react-calendar';
 import axios from 'axios';
 
 const dashboard = () =>{
 
-
+    const [item, setItem] = useState([]);
+	const [datePick, setDatePick] = useState(new Date());
     const [data2, setData2] = useState([]);
     const [data3, setData3] = useState([]);
+    
+    useEffect(() =>{
+		setItem(data);
+	},[]);
+    let keys = Object.keys(item);
+	console.log("Keys " + keys)
+	let values = Object.values(item.map(dates => dates.dates))
+	console.log("dates " + values)
 
     useEffect( ()=>{
         const getdata = async()=>{
@@ -34,38 +47,29 @@ const dashboard = () =>{
 
     return(
         <div className="main-content">
-            <div className='user-container'>
-                <div className='top-header'>
-                    USER HISTORY
-                </div>
+                
+            <Chart />
 
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Date</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    {data3.map(mydata3 =>(
-                        <tbody>
-                            <tr key={mydata3.name}>
-                                <td>{mydata3.name}</td>
-                                <td>{mydata3.date}</td>
-                                <td>{mydata3.title}</td>
-                                <td>{mydata3.description}</td>
-                            </tr>
-                        </tbody>
-                    ))}
-                </Table>
 
-            </div>
+            <Calendar 
+				value={datePick}
+				onChange={setDatePick}
+				tileClassName={({ date }) => {
+					const formatDate = momemt(date).format("M/D/YYYY");
+					if (values.includes(formatDate)) {
+						console.log("it is working")
+					  return 'hightlight';
+					}
+				  }
+				  
+			}
+			
+			/>
+
             <div className="message-container">
                 <div className="top-header">
-                    USER MESSAGESss
+                    USER MESSAGES
                 </div>
-                <div className="list-messages">
 
                 <Table striped bordered hover size="sm">
                     <thead>
@@ -91,8 +95,6 @@ const dashboard = () =>{
                         </tbody>
                     ))}
                 </Table>
-                    
-                </div>
             </div>
         </div>
     )
