@@ -7,7 +7,11 @@ import Calendar from './maincomponents/admin-subpage/calendar';
 import Profile from './maincomponents/admin-subpage/profile';
 import Insert from './maincomponents/admin-subpage/insertdatas';
 import Chart from './maincomponents/admin-subpage/charts';
+import SDLearning from './maincomponents/admin-subpage/skinlearning';
+import ITrain from './maincomponents/admin-subpage/imagetrain';
 import './App.css';
+
+import 'react-calendar/dist/Calendar.css';
 
 function App() {
 
@@ -21,6 +25,8 @@ function App() {
               <Route path="profile" element={<Profile />} />
               <Route path="insert" element={<Insert />} />
               <Route path="chart" element={<Chart />} />
+              <Route path="skinlearning" element={<SDLearning />} />
+              <Route path="skindiseasetraining" element={<ITrain />} />
             </Route>
       </Routes>
     </>
