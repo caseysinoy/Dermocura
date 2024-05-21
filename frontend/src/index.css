@@ -1,0 +1,3 @@
+/* Any files like the index.css becomes a global file that can be used anywhere under the index.css.
+For example: you can add background and it fills all the background color in any pages, but to any css/scss files 
+closer to the desired jsx file you want to edit will be overwritten */
