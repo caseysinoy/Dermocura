@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 
+// navigate is a component that can be reusable to any files.
 function navigate(){
     return(
         <div className="side-bar">
             <nav>
+                {/* Links create the nav links that a user can interact on the website */}
                 <Link className='link' to="admindashboard">Dashboard</Link>
                 <Link className='link' to="chart">Charts</Link>
                 <Link className='link'to="calendar">Calendar/Scheduling</Link>
