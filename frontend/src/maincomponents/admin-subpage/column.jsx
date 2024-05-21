@@ -1,5 +1,6 @@
 import React from "react";
 
+// used for the tables header
 export const columnTable = [
     {
         accessorKey: "id",

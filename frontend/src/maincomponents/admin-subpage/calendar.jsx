@@ -19,13 +19,12 @@ function calendar(){
 	const [secondInputHour, setSecondInputHour] = useState('');
 	const [radioValue, setRadioValue] = useState('');
 
-
-
+	// There is a json file api that I am using to make fake data values called data.json
 	useEffect(() =>{
 		setItem(data);
 	},[]);
 
-	
+	// this is for the admin to set up the time slots
 	const onChangeF = (e) =>{
 		setFirstInputHour(e.target.value);
 	}
@@ -33,7 +32,7 @@ function calendar(){
 	const onChangeS = (e) =>{
 		setSecondInputHour(e.target.value);
 	}
-
+	// admin can select which day value to add
 	const handleRadioValue = (e) => {
 		setRadioValue(e.target.value);
 	  };
@@ -54,7 +53,7 @@ function calendar(){
 
 	let keys = Object.keys(item);
 	console.log("Keys " + keys)
-	let values = Object.values(item.map(dates => dates.dates))
+	let values = Object.values(item.map(dates => dates.dates)) // basically turns objects into value.
 	console.log("dates " + values)
 
 	return(

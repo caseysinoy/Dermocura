@@ -18,6 +18,7 @@ function Imagetrain(){
     }
   
     try {
+      // link to the flask that kylle is working on and is used to post the formData to the cnn model folders.
       const response = await fetch('http://51.79.159.127:8080/upload_images', {
         method: 'POST',
         body: formData,
