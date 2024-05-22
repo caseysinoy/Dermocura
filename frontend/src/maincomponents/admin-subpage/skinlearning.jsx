@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 function SkinDisease() { // Use PascalCase for component names
   const [selectedFiles, setSelectedFiles] = useState([]);
 
+  // Everything below is just to help me display the images whenever the user input file images.
+  // I have not create a function yet to connect to the database to post the informations
   const handleFileChange = (event) => {
     const newFiles = Array.from(event.target.files); // Convert FileList to array
     setSelectedFiles(newFiles);
@@ -41,7 +43,7 @@ function SkinDisease() { // Use PascalCase for component names
           <Form.Label>File Images</Form.Label>
           <Form.Control type="file" onChange={handleFileChange} accept="image/*" />
         </Form.Group>
-
+        {/* It displays images */}
         {selectedFiles.length > 0 && (
           <ListGroup className="mt-3">
             {selectedFiles.map((file, index) => (
