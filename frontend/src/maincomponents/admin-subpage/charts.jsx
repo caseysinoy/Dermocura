@@ -6,6 +6,8 @@ import 'chartjs-adapter-date-fns';
 import { Line } from "react-chartjs-2";
 import { format } from 'date-fns'; // Import for date formatting
 
+// Crazy stuff too much to explain, hahahahahaha
+
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
 
@@ -213,7 +215,7 @@ const Chart = () => { // Pass chartType as a prop
   // ... rest of the component code
 
   return (
-    <Container style={{ height: '300px' }}>
+    <Container className='chart' style={{ height: '300px' }}>
       <h3>Line chart</h3>
       <button onClick={() => handleChartTypeChange("day")}>Day Chart</button>
       <button onClick={() => handleChartTypeChange("month")}>Month Chart</button>
